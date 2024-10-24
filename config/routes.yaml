@@ -1,0 +1,15 @@
+controllers:
+    resource: ../src/Controller/v1
+    type: attribute
+    prefix: '/api/v1'
+
+api_login_check:
+    path: /api/v1/login
+
+api_login_check_admin:
+    path: /api/v1/login-admin
+
+app_home:
+    resource: ../src/Controller/HomeController.php
+    type: attribute
+

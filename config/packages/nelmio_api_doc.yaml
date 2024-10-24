@@ -1,0 +1,147 @@
+nelmio_api_doc:
+    models: { use_jms: false }
+    documentation:
+        info:
+            title: My App
+            description: This is an awesome app!
+            version: 1.0.0
+        components:
+            securitySchemes:
+                bearerAuth:
+                    type: http
+                    scheme: bearer
+                    bearerFormat: JWT
+                locale:
+                    type: apiKey
+                    in: header
+                    name: Accept-Language
+            schemas:
+                TokenModel:
+                    type: object
+                    properties:
+                        token:
+                            type: string
+                            example: eyJ0e.....MampjZlOjc
+                        refreshToken:
+                            type: string
+                            example: fe837e130.....6ce7e54466400e6
+        security:
+            - bearerAuth: []
+            - locale: []
+        paths:
+            '/api/v1/login':
+                post:
+                    tags:
+                        - Auth
+                    summary: 'Login a user'
+                    requestBody:
+                        content:
+                            application/json:
+                                schema:
+                                    type: object
+                                    properties:
+                                        username:
+                                            type: string
+                                            example: apple
+                                        password:
+                                            type: string
+                                            example: apple36
+                    responses:
+                        '200':
+                            description: OK
+                            content:
+                                application/json:
+                                    schema:
+                                        $ref: '#/components/schemas/TokenModel'
+                        '401':
+                            description: Unauthorized
+                            content:
+                                application/json:
+                                    schema:
+                                        type: object
+                                        properties:
+                                            code:
+                                                type: integer
+                                                example: 401
+                                            message:
+                                                type: string
+                                                example: Invalid credentials.
+            '/api/v1/login-admin':
+                post:
+                    tags:
+                        - Admin
+                    summary: 'Login an admin'
+                    requestBody:
+                        content:
+                            application/json:
+                                schema: # Request body contents
+                                    type: object
+                                    properties:
+                                        username:
+                                            type: string
+                                            example: apple
+                                        password:
+                                            type: string
+                                            example: apple36
+                    responses:
+                        '200':
+                            description: OK
+                            content:
+                                application/json:
+                                    schema:
+                                        $ref: '#/components/schemas/TokenModel'
+                        '401':
+                            description: Unauthorized
+                            content:
+                                application/json:
+                                    schema:
+                                        type: object
+                                        properties:
+                                            code:
+                                                type: integer
+                                                example: 401
+                                            message:
+                                                type: string
+                                                example: Invalid credentials.
+            '/api/token/refresh':
+                post:
+                    tags:
+                        - Auth
+                    summary: 'Refresh a token'
+                    requestBody:
+                        content:
+                            application/json:
+                                schema: # Request body contents
+                                    type: object
+                                    properties:
+                                        refreshToken:
+                                            type: string
+                                            example: 647ed8e17......21eb235d4
+                    responses:
+                        '200':
+                            description: OK
+                            content:
+                                application/json:
+                                    schema:
+                                        $ref: '#/components/schemas/TokenModel'
+                        '401':
+                            description: Unauthorized
+                            content:
+                                application/json:
+                                    schema:
+                                        type: object
+                                        properties:
+                                            code:
+                                                type: integer
+                                                example: 401
+                                            message:
+                                                type: string
+                                                example: JWT Refresh Token Not Found
+    areas: # to filter documented areas
+        default:
+            disable_default_routes: true
+            path_patterns:
+                - ^/api(?!/doc$) # Accepts routes under /api except /api/doc
+    # areas: # to filter documented areas
+    #     path_patterns:
+    #         - ^/api(?!/doc$) # Accepts routes under /api except /api/doc
