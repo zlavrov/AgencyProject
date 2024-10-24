@@ -11,10 +11,6 @@ class MetaModel
 {
     #[Groups(groups: [
         AccessGroup::USER_READ,
-        AccessGroup::AGENT_READ,
-        AccessGroup::AGENCY_READ,
-        AccessGroup::DEPARTMENT_READ,
-        AccessGroup::OCCUPATION_READ,
     ])]
     public int $totalCount;
 }

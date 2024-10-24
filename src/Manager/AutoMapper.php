@@ -20,11 +20,6 @@ use Symfony\Component\PropertyInfo\Extractor\SerializerExtractor;
 use Symfony\Component\PropertyInfo\Type;
 use Symfony\Component\Serializer\Annotation\Groups;
 use Symfony\Component\Serializer\Mapping\Factory\ClassMetadataFactory;
-
-// use Symfony\Component\Serializer\Mapping\Loader\AttributeLoader;
-
-// use Doctrine\Common\Annotations\AnnotationReader;
-use Symfony\Component\Serializer\Mapping\Loader\AnnotationLoader;
 use Symfony\Component\Serializer\Mapping\Loader\AttributeLoader;
 
 trait AutoMapper {

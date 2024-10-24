@@ -10,8 +10,6 @@ use App\Repository\BaseRepository;
 use Doctrine\ORM\EntityRepository;
 use UnexpectedValueException;
 
-use function PHPUnit\Framework\returnSelf;
-
 abstract class BaseManager {
 
     use AutoMapper;

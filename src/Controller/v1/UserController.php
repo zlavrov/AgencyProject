@@ -147,8 +147,26 @@ class UserController extends AbstractController
         parameters: [
             new Parameter(
                 name: 'search',
-                description: 'Filter by fields \'First Name\' and \'Last Name\' and \'Email\' and \'UserName\'',
+                description: 'Filter by fields \'First Name\' and \'Last Name\' and \'Email\'',
                 in: 'query'
+            ),
+            new Parameter(
+                name: 'emailVerified',
+                description: 'emailVerified',
+                in: 'query',
+                schema: new Schema(type: 'boolean')
+            ),
+            new Parameter(
+                name: 'page',
+                description: 'The collection page number',
+                in: 'query',
+                schema: new Schema(type: 'integer', default: 1)
+            ),
+            new Parameter(
+                name: 'itemsPerPage',
+                description: 'The number of items per page',
+                in: 'query',
+                schema: new Schema(type: 'integer', default: 12)
             ),
         ],
         responses: [
