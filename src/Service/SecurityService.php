@@ -42,7 +42,7 @@ readonly class SecurityService {
 
         if(isset($userModel->professional)) {
             $user->setProfessional($userModel->professional);
-            if($userModel->plainPassword) {
+            if($userModel->professional) {
                 $user->setRoles([Roles::ROLE_HEAD]);
             }
         }

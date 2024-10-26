@@ -1,0 +1,22 @@
+{
+    "login": "Please Login",
+    "register": "Please Registration",
+    "username": "Username",
+    "first.name": "First Name",
+    "last.name": "Last Name",
+    "email": "Email",
+    "password": "Password",
+    "remember.me": "Remember me",
+    "send": "Send",
+    "log.in": "LogIn",
+    "log.up": "LogUp",
+    "log.out": "LogOut",
+    "home": "Home",
+    "about": "About",
+    "profile": "Profile",
+    "price": "Price",
+    "user": "User",
+    "ua": "Ukranine 🇺🇦",
+    "en": "English 🇬🇧",
+    "login.invalid": "Login invalid"
+}
